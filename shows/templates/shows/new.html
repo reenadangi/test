@@ -1,0 +1,35 @@
+{% extends "shows/base.html" %}
+{% block content %}
+<p class="h1">Add new show</p>
+{%for message in messages%}
+{{message}}
+{%endfor%}
+<form action="/add_show/" method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form.as_p }}
+
+    <div class="form-group">
+        <label for="title">Title</label>
+        <input type="text" class="form-control" name="title" placeholder="Enter title">
+    </div>
+    <div class="form-group">
+            <label for="network">Network</label>
+            <input type="text" class="form-control" name="network" placeholder="Enter network">
+    </div>
+    <div class="form-group">
+            <label for="release_date">Release date</label>
+            <input type="text" class="form-control" name="release_date" placeholder="YYYY/MM/DD">
+    </div>
+    <div class="form-group">
+            <label for="desc"> Description</label>
+            <textarea class="form-control" name="desc" rows="4" cols="10" placeholder="Enter description"></textarea>
+    </div>
+    <div class="form-group">
+            <label for="poster"> Poster</label>
+            <input type="file" class="form-control" name="poster" placeholder="Select Poster">
+    </div>
+
+    
+    <input type="submit" value="Add Show">
+</form>
+{% endblock content%}

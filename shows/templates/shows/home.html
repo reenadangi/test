@@ -1,0 +1,34 @@
+{% extends "shows/base.html" %}
+{% block content %}
+    <H2>Most Popular Shows </H2>
+    <a href="/new">Add New Show</a>
+
+    <table class="table table-striped table-bordered">
+        <thead class=table-dark>
+            <tr>
+                <th>Id</th>
+                <th>Title</th>
+                <th>Network</th>
+                <th>Release Date</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+
+    {%for show in shows%}
+       <tr>
+    <td>{{show.id}}</td>
+    <td>{{show.title}}</td>
+       <td> {{show.network}}</td>
+         <td>{{ show.release_date}}</td>
+     <td><a href="/showDetails/{{show.id}}">View | </a>
+     <a href="/editShow/{{show.id}}">Edit |</a>
+     <a href="/delete_show/{{show.id}}">Delete</a>
+    </td>
+</tr>
+    {%endfor%}
+</table>
+    
+    
+    
+{% endblock content%}
+

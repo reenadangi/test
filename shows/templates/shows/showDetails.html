@@ -1,0 +1,20 @@
+{% extends "shows/base.html" %}
+{% block content %}
+
+    
+
+</p>
+<div class="media">
+    <img class="mr-3 mt-5"  width=300 src="../../../media/{{show.poster}}" alt="">
+
+<div class="media-body">
+        <p class="h4"> {{show.title}}   </p>
+        <hr>
+    Network : {{show.network}}
+    <p>Release date:{{show.release_date}}</p>
+    <p>About: {{show.desc}} </p>
+  
+    <a href="/"> All shows</a>
+</div>
+</div>
+{% endblock content%}
